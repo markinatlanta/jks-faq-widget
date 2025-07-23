@@ -1,0 +1,62 @@
+[
+  {
+    "key": "treat_conditions",
+    "prompt": "You are a friendly MedSpa consultant. Answer: \"What skin conditions do you treat?\" Include a brief list and a call-to-action.",
+    "answer": "<p>We treat a wide range of conditions including acne, rosacea, hyperpigmentation, fine lines, and uneven texture. <strong>Ready for clearer skin?</strong> <a href='https://www.advisoryjks.com/medspa-booking'>Book your consultation now!</a></p>"
+  },
+  {
+    "key": "laser_duration",
+    "prompt": "You are a friendly MedSpa consultant. Answer: \"How long does a typical laser hair removal session take?\" Mention prep time and session length.",
+    "answer": "<p>A standard laser hair removal session takes about 20–30 minutes, with an additional 5 minutes for setup. It’s quick and perfect for busy schedules—<em>no downtime required.</em></p>"
+  },
+  {
+    "key": "chemical_peel_prep",
+    "prompt": "You are a friendly MedSpa consultant. Answer: \"What should I do to prepare for my chemical peel?\"",
+    "answer": "<p>Before your peel, avoid prolonged sun exposure and stop using retinoids 3 days prior. On appointment day, arrive with clean, makeup‑free skin. We’ll handle the rest—<strong>your glow awaits!</strong></p>"
+  },
+  {
+    "key": "microneedling_pain",
+    "prompt": "You are a friendly MedSpa consultant. Answer: \"Is microneedling painful?\" Include numbing options.",
+    "answer": "<p>Most clients describe microneedling as mild discomfort. We apply a topical numbing cream 30 minutes beforehand to ensure a comfortable experience. <strong>Feel free to ask for extra numbing if needed!</strong></p>"
+  },
+  {
+    "key": "coolsculpting_sessions",
+    "prompt": "You are a friendly MedSpa consultant. Answer: \"How many sessions of CoolSculpting will I need?\"",
+    "answer": "<p>On average, 1–2 sessions per treatment area deliver optimal results. We’ll customize your plan during a free consultation—<em>no surprises, just smooth curves.</em></p>"
+  },
+  {
+    "key": "botox_downtime",
+    "prompt": "You are a friendly MedSpa consultant. Answer: \"What’s the downtime after a Botox treatment?\"",
+    "answer": "<p>Botox has virtually no downtime. You might see minor redness or swelling for a few hours, but most clients resume normal activities immediately—<strong>great for midday appointments!</strong></p>"
+  },
+  {
+    "key": "financing_options",
+    "prompt": "You are a friendly MedSpa consultant. Answer: \"Do you offer financing or payment plans?\"",
+    "answer": "<p>Yes—we partner with CareCredit and Cherry to offer flexible financing options. Apply online in minutes and choose a plan that fits your budget—<strong>beauty on your terms.</strong></p>"
+  },
+  {
+    "key": "injector_certification",
+    "prompt": "You are a friendly MedSpa consultant. Answer: \"Are your injectors board-certified?\"",
+    "answer": "<p>All injectors are board-certified nurse practitioners with specialized training in aesthetic injections. Your safety and satisfaction are our top priority.</p>"
+  },
+  {
+    "key": "combine_treatments",
+    "prompt": "You are a friendly MedSpa consultant. Answer: \"Can I combine treatments in one visit?\"",
+    "answer": "<p>Absolutely! We often combine services like Botox + filler or laser + chemical peel in one appointment. We’ll tailor your session for maximum efficiency and comfort.</p>"
+  },
+  {
+    "key": "filler_results",
+    "prompt": "You are a friendly MedSpa consultant. Answer: \"How soon will I see results from dermal fillers?\"",
+    "answer": "<p>Results from fillers are immediate—though subtle swelling can last 1–2 days. You’ll see the full outcome within 1 week, with effects lasting 6–12 months.</p>"
+  },
+  {
+    "key": "post_treatment_care",
+    "prompt": "You are a friendly MedSpa consultant. Answer: \"What post-treatment care is required?\"",
+    "answer": "<p>After most treatments, avoid strenuous exercise and sun exposure for 24 hours. Keep the area clean and moisturized. We’ll provide a detailed care sheet at checkout.</p>"
+  },
+  {
+    "key": "discounts_memberships",
+    "prompt": "You are a friendly MedSpa consultant. Answer: \"Do you offer package discounts or memberships?\"",
+    "answer": "<p>We offer tiered memberships with 10–20% off regular prices and exclusive member-only events. Ask about our membership plans during your consultation!</p>"
+  }
+]
