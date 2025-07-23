@@ -1,0 +1,101 @@
+/* jks-faq-widget.css */
+
+/* JKS Advisory primary color */
+:root {
+  --jks-primary: #1e3a8a;
+}
+
+/* Container for the chat bubble */
+#jks-faq-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--jks-primary);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover effect */
+#jks-faq-bubble:hover {
+  background-color: rgba(30, 58, 138, 0.85);
+}
+
+/* Icon inside the bubble */
+#jks-faq-bubble img {
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+}
+
+/* Chat window panel (hidden by default) */
+#jks-faq-panel {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 320px;
+  max-height: 400px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+/* Visible state */
+#jks-faq-panel.open {
+  display: flex;
+}
+
+/* Panel header */
+#jks-faq-panel .header {
+  background-color: var(--jks-primary);
+  color: #fff;
+  padding: 8px 12px;
+  font-weight: bold;
+}
+
+/* Panel body */
+#jks-faq-panel .body {
+  padding: 12px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Input container */
+#jks-faq-panel .input-wrapper {
+  display: flex;
+  border-top: 1px solid #eee;
+}
+
+/* Text input */
+#jks-faq-panel input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  outline: none;
+}
+
+/* Send button */
+#jks-faq-panel button.send {
+  background-color: var(--jks-primary);
+  color: #fff;
+  border: none;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#jks-faq-panel button.send:hover {
+  background-color: rgba(30, 58, 138, 0.85);
+}
