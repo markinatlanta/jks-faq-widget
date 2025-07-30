@@ -3,7 +3,11 @@
   function elt(tag, attrs = {}, ...children) {
     const e = document.createElement(tag);
     Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));
-    children.forEach(c=> typeof c==='string'? e.appendChild(document.createTextNode(c)) : e.appendChild(c));
+    children.forEach(c=>
+      typeof c==='string'
+        ? e.appendChild(document.createTextNode(c))
+        : e.appendChild(c)
+    );
     return e;
   }
 
@@ -25,35 +29,42 @@
   }
 
   window.JKS_FAQ_Widget = {
-    init({ proxyEndpoint, promptBundle, position, brandName }) {
-      this.opts = { proxyEndpoint, promptBundle, position, brandName };
+    init(opts) {
+      // defer actual UI work until DOM is ready
+      const doInit = () => {
+        const { proxyEndpoint, promptBundle, position, brandName } = opts;
+        const bubble = createBubble();
+        const { panel, body, input, send } = createPanel();
 
-      const bubble = createBubble();
-      const { panel, body, input, send } = createPanel();
-
-      if(position==='bottom-left'){
-        bubble.style.right='auto'; bubble.style.left='20px';
-        panel.style.right='auto'; panel.style.left='20px';
-      }
-
-      bubble.addEventListener('click', ()=> panel.classList.toggle('open'));
-
-      send.addEventListener('click', async ()=>{
-        const key = input.value.trim();
-        if(!key) return;
-        body.innerHTML = '<p>Loading…</p>';
-        try {
-          const res = await fetch(proxyEndpoint, {
-            method:'POST',
-            headers:{ 'Content-Type':'application/json' },
-            body: JSON.stringify({ promptKey: key })
-          });
-          const { answer } = await res.json();
-          body.innerHTML = answer;
-        } catch(err) {
-          body.innerHTML = `<p style="color:red;">${err.message}</p>`;
+        if(position==='bottom-left'){
+          bubble.style.right='auto'; bubble.style.left='20px';
+          panel.style.right='auto'; panel.style.left='20px';
         }
-      });
+
+        bubble.addEventListener('click', ()=> panel.classList.toggle('open'));
+        send.addEventListener('click', async ()=>{
+          const key = input.value.trim();
+          if(!key) return;
+          body.innerHTML = '<p>Loading…</p>';
+          try {
+            const res = await fetch(proxyEndpoint, {
+              method:'POST',
+              headers:{ 'Content-Type':'application/json' },
+              body: JSON.stringify({ promptKey: key })
+            });
+            const { answer } = await res.json();
+            body.innerHTML = answer;
+          } catch(err) {
+            body.innerHTML = `<p style="color:red;">Error: ${err.message}</p>`;
+          }
+        });
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', doInit);
+      } else {
+        doInit();
+      }
     }
   };
 })();
