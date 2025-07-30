@@ -1,21 +1,17 @@
 // widget/jks-faq-widget.js
 ;(function(){
+  // create element helper
   function elt(tag, attrs = {}, ...kids) {
     const e = document.createElement(tag);
     Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));
-    kids.forEach(c=>{
-      if (typeof c === 'string') e.appendChild(document.createTextNode(c));
-      else e.appendChild(c);
-    });
+    kids.forEach(c=> typeof c==='string' ? e.appendChild(document.createTextNode(c)) : e.appendChild(c));
     return e;
   }
 
+  // bubble & panel builders, but do NOT call them until body exists
   function createBubble() {
-    const b = elt('div',{ id:'jks-faq-bubble' }, '?');
-    document.body.appendChild(b);
-    return b;
+    return elt('div',{ id:'jks-faq-bubble' }, '?');
   }
-
   function createPanel() {
     const header = elt('div',{ class:'header' }, 'FAQ Bot');
     const body   = elt('div',{ class:'body' });
@@ -23,23 +19,24 @@
     const send   = elt('button',{ class:'send' }, 'Ask');
     const wrap   = elt('div',{ class:'input-wrapper' }, input, send);
     const panel  = elt('div',{ id:'jks-faq-panel' }, header, body, wrap);
-    document.body.appendChild(panel);
     return { panel, body, input, send };
   }
 
   window.JKS_FAQ_Widget = {
     init(opts) {
-      // Wait for document.body to exist
+      // wait until <body> is available
       (function waitForBody(){
         if (!document.body) {
           return setTimeout(waitForBody, 50);
         }
-        // Now safe to build UI
-        const { proxyEndpoint, promptBundle, position, brandName } = opts;
+        // now safe to inject
+        const { proxyEndpoint, promptBundle, position } = opts;
+        // insert bubble and panel into the real body
         const bubble = createBubble();
+        document.body.appendChild(bubble);
         const { panel, body, input, send } = createPanel();
+        document.body.appendChild(panel);
 
-        // Position override
         if (position === 'bottom-left') {
           bubble.style.right = 'auto'; bubble.style.left  = '20px';
           panel.style.right  = 'auto'; panel.style.left   = '20px';
@@ -53,7 +50,7 @@
           try {
             const res = await fetch(proxyEndpoint, {
               method: 'POST',
-              headers: { 'Content-Type':'application/json' },
+              headers:{ 'Content-Type':'application/json' },
               body: JSON.stringify({ promptKey: key })
             });
             const { answer } = await res.json();
