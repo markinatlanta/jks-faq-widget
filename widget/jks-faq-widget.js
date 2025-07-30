@@ -15,7 +15,7 @@
   function createPanel() {
     const header = elt('div',{ class:'header' }, 'FAQ Bot');
     const body   = elt('div',{ class:'body' });
-    const input  = elt('input',{ type:'text', placeholder:'Enter FAQ key' });
+    const input  = elt('input',{ type:'text', placeholder:'Type your question (e.g. “How long is a laser session?”)' });
     const send   = elt('button',{ class:'send' }, 'Ask');
     const wrap   = elt('div',{ class:'input-wrapper' }, input, send);
     const panel  = elt('div',{ id:'jks-faq-panel' }, header, body, wrap);
