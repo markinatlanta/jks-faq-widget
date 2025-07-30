@@ -13,7 +13,7 @@
     return elt('div',{ id:'jks-faq-bubble' }, '?');
   }
   function createPanel() {
-    const header = elt('div',{ class:'header' }, 'FAQ Bot');
+    const header = elt('div',{ class:'header' }, 'Our ChatBot');
     const body   = elt('div',{ class:'body' });
     const input  = elt('input',{ type:'text', placeholder:'Type your question (e.g. “How long is a laser session?”)' });
     const send   = elt('button',{ class:'send' }, 'Ask');
