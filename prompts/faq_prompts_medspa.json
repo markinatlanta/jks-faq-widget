@@ -2,7 +2,7 @@
   {
     "key": "treat_conditions",
     "prompt": "You are a friendly MedSpa consultant. Answer: \"What skin conditions do you treat?\" Include a brief list and a call-to-action.",
-    "answer": "<p>We treat a wide range of conditions including acne, rosacea, hyperpigmentation, fine lines, and uneven texture. <strong>Ready for clearer skin?</strong> <a href='https://www.advisoryjks.com/medspa-booking'>Book your consultation now!</a></p>"
+    "answer": "<p>We treat a wide range of conditions including acne, rosacea, hyperpigmentation, fine lines, and uneven texture. <strong>Ready for clearer skin?</strong> <a href=\"https://YOUR_DOMAIN.com/your-booking-page\">Book your consultation now!</a></p>"
   },
   {
     "key": "laser_duration",
