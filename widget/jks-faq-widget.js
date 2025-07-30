@@ -1,12 +1,21 @@
-<!-- Include this in your <head> or before </body> -->
-<script src="https://cdn.jsdelivr.net/gh/advisoryjks/jks-faq-widget@main/jks-faq-widget.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/advisoryjks/jks-faq-widget@main/jks-faq-widget.css" />
-
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/markinatlanta/jks-faq-widget@main/widget/jks-faq-widget.css" 
+/>
+<script
+  src="https://cdn.jsdelivr.net/gh/markinatlanta/jks-faq-widget@main/widget/jks-faq-widget.js">
+</script>
 <script>
-  window.JKS_FAQ_Widget.init({
-    apiKey: "REPLACE_WITH_YOUR_KEY",
-    promptBundle: "https://your-cdn.com/faq_prompts_medspa.json",
-    position: "bottom-right",
-    brandName: "JKS Advisory MedSpa"
-  });
+  (function waitForWidget() {
+    if (window.JKS_FAQ_Widget?.init) {
+      window.JKS_FAQ_Widget.init({
+        proxyEndpoint: window.location.origin + "/_functions/openai",
+        promptBundle: "https://cdn.jsdelivr.net/gh/markinatlanta/jks-faq-widget@main/prompts/faq_prompts_medspa.json",
+        position: "bottom-right",
+        brandName: "JKS Advisory"
+      });
+    } else {
+      setTimeout(waitForWidget, 100);
+    }
+  })();
 </script>
