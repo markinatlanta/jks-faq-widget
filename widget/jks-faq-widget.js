@@ -1,4 +1,7 @@
 // widget/jks-faq-widget.js
+
+// refreshed at <insert current date/time> to bust jsDelivr cache
+
 ;(function(){
   // helpers
   function elt(tag, attrs = {}, ...kids) {
